@@ -1,0 +1,10 @@
+add
+--alluredir=allure-results
+
+to op from the terminal
+pytest--alluredir=allure-results name_of_folder::class::fun or class
+
+
+
+serve!
+allure serve allure-results
