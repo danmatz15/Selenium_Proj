@@ -1,0 +1,4 @@
+✔️ Date text: 📅 תאריך קנייה: 7.3.2025
+✔️ Current Price: 111.7173$
+✔️ Num of Stocks: 📦 כמות מניות: 1
+✔️ Found 24 table cells.

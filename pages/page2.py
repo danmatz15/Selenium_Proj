@@ -8,17 +8,28 @@ from pages.base_page import BasePage
 
 
 class Page2(BasePage):
-    BEGINNER=(By.CSS_SELECTOR,".fa.fa-blind")
-    Advanced=(By.CSS_SELECTOR,".fa.fa-star")
-    NEXT_BTN=(By.CSS_SELECTOR,".btn.btn-next")
-    def __init__(self,driver):
-        super().__init__(driver)
+    MORE=(By.CSS_SELECTOR,".expand-btn")
+    READ_MORE=(By.CSS_SELECTOR,".news-button")
 
-    def change_btn(self):
-        self.click(self.BEGINNER)
-        self.click(self.Advanced)
-        time.sleep(2)
-        self.click(self.NEXT_BTN)
+
+
+    def check_news(self,title):
+        main_window = self.driver.current_window_handle
+        area_list=self.driver.find_elements(By.CSS_SELECTOR,".news-card")
+        for area in area_list:
+            header=area.find_element(By.CSS_SELECTOR,".news-heading")
+            if header.text==title:
+
+                link=area.find_element(By.CSS_SELECTOR,".news-button")
+                self.click(link)
+                time.sleep(2)
+                self.driver.switch_to.window(main_window)
+                time.sleep(2)
+                self.click(self.MARKETS)
+                return True
+
+
+        return  False
 
 
 
